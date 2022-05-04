@@ -2,8 +2,11 @@
 def CDT(usuario:str, capital: int, tiempo: int):
     """
         Función que reciba como parámetros:
-        
-
+        usuario: usuario (str)
+        capital: monto a ingresar (int)
+        tiempo: tiempo del CDT (int)
+        Retorna: Una cadena de caracteres que le proporcione
+        al banco la información que desea obtener.
     """
 
     if tiempo > 2:
