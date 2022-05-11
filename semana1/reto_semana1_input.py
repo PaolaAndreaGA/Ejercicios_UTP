@@ -17,8 +17,6 @@ def CDT(usuario: str, capital: int, tiempo: int):
         penalizacion = 0.02
         valor_perd = capital * penalizacion
         valor_total = capital - valor_perd
-
-
     return valor_total
 
 usuario = input("Digite su nombre de usuario: ")
