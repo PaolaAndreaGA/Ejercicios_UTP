@@ -36,5 +36,5 @@ def cliente(informacion:dict)->dict:
     mi_dict = {'nombre': nombre , 'edad': edad, 'atraccion': atraccion, 'apto': apto, 'primer_ingreso': primer_ing, 'total_boleta': total_boleta  }
     return mi_dict
 
-informacion = {'id_cliente': 1,'nombre': 'Tatiana Suarez', 'edad': 17,'primer_ingreso': True}
+informacion = {'id_cliente': 1,'nombre': 'Tatiana Suarez', 'edad': 7,'primer_ingreso': False}
 print(cliente(informacion))

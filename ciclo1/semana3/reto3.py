@@ -14,7 +14,7 @@ def consultaRegistro(ventas, idProducto):
         result3 = 'No hay registro de venta de ese producto'
     else:
         for x in result2:
-            result3 += f"Producto consultado:  {ventas[x][0][0]} Descripción  {ventas[x][0][1]} #Parte  {ventas[x][0][2]} Cantidad vendida  {ventas[x][0][3]} Stock {ventas[x][0][4]} Comprador  {ventas[x][0][5]} Documento  {ventas[x][0][6]} Fecha Venta  {ventas[x][0][7]} \n"
+            result3 += f"Producto consultado : {ventas[x][0][0]}  Descripción  {ventas[x][0][1]}  #Parte  {ventas[x][0][2]}  Cantidad vendida  {ventas[x][0][3]}  Stock  {ventas[x][0][4]}  Comprador {ventas[x][0][5]}  Documento  {ventas[x][0][6]}  Fecha Venta  {ventas[x][0][7]}\n"
     return print(result3)
 
 
