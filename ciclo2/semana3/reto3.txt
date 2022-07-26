@@ -12,12 +12,12 @@ Constructora,
 Ciudad, 
 Proyecto.Clasificacion,
 Estrato,
-Nombre || " " || Primer_Apellido || " " || Segundo_Apellido  as Lider
+Nombre || " " || Primer_Apellido || " " || Segundo_Apellido  as LIDER
 FROM Proyecto
 JOIN TIPO ON Proyecto.ID_Tipo = Tipo.ID_Tipo
 JOIN Lider ON Proyecto.ID_Lider = Lider.ID_Lider
 WHERE Banco_Vinculado = "Conavi"
-ORDER by Fecha_Inicio DESC, Ciudad, Constructora
+ORDER by Fecha_Inicio DESC, Ciudad, Constructora;
 
 
 SELECT Ciudad, Clasificacion, count(*) AS TOTAL,
@@ -25,7 +25,7 @@ MIN(Fecha_Inicio) AS VIEJO, MAX(Fecha_Inicio) AS RECIENTE
 FROM Proyecto
 WHERE Clasificacion NOT IN("Casa Campestre", "Condominio")
 GROUP by Ciudad, Clasificacion
-ORDER by Ciudad, Clasificacion
+ORDER by Ciudad, Clasificacion;
 
 SELECT Proyecto.ID_Proyecto, sum(Cantidad * Precio_Unidad) as VALOR
 FROM Proyecto
@@ -34,5 +34,15 @@ JOIN  Compra ON Proyecto.ID_Proyecto = Compra.ID_Proyecto
 WHERE Pagado = "No"
 GROUP  by Proyecto.ID_Proyecto
 HAVING sum(Cantidad * Precio_Unidad)>50000
+ORDER by VALOR DESC;
+
+SELECT Nombre || " " || Primer_Apellido || " " || Segundo_Apellido as LIDER,
+sum (Cantidad*Precio_Unidad) as VALOR
+FROM Lider
+JOIN Proyecto ON Proyecto.ID_Lider = Lider.ID_Lider
+JOIN Compra ON Proyecto.ID_Proyecto = Compra.ID_Proyecto
+JOIN MaterialConstruccion ON Compra.ID_MaterialConstruccion = MaterialConstruccion.ID_MaterialConstruccion
+GROUP by LIDER
 ORDER by VALOR DESC
+LIMIT 10;
 
